@@ -11,7 +11,7 @@
             --primary-color: #e60012; 
             --bg-color: #0b0f19;
             --text-light: #ffffff;
-            --text-gray: #a0a0a0;
+            --text-gray: #d0d0d0; /* تفتيح النص الرمادي ليكون مقروءاً أكثر على الخلفية */
         }
 
         * {
@@ -24,8 +24,8 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-light);
-            /* هنا يتم استدعاء صورة الخلفية الخاصة بك، يجب أن تكون بنفس مسار الملف */
-            background: linear-gradient(135deg, rgba(11,15,25,0.8) 0%, rgba(20,10,40,0.8) 50%, rgba(10,30,50,0.8) 100%), url('bg.jpg') no-repeat center center fixed;
+            /* هنا تضع رابط صورتك. لقد خففت اللون الأسود المدمج معها لتبان غاية */
+            background: linear-gradient(135deg, rgba(11,15,25,0.4) 0%, rgba(20,10,40,0.3) 100%), url('bg.jpg') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             display: flex;
@@ -34,16 +34,16 @@
             padding: 40px 20px;
         }
 
-        /* الحاوية الزجاجية للموقع */
+        /* الحاوية الزجاجية - قمت بزيادة شفافيتها لتبرز الخلفية */
         .main-container {
             width: 100%;
-            max-width: 1100px;
-            background: rgba(15, 20, 30, 0.65);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1200px;
+            background: rgba(15, 20, 30, 0.3); /* شفافية عالية */
+            backdrop-filter: blur(10px); /* تقليل الضبابية قليلاً */
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(0, 150, 255, 0.2);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
         }
 
         /* شريط التنقل */
@@ -52,13 +52,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .logo {
             font-size: 28px;
             font-weight: 900;
             letter-spacing: 2px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
         nav ul {
@@ -71,8 +73,9 @@
             color: var(--text-light);
             text-decoration: none;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 16px;
             transition: 0.3s;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         nav a:hover, nav a.active {
@@ -82,151 +85,149 @@
         .social-icons {
             display: flex;
             gap: 15px;
-            color: var(--text-gray);
+            color: #fff;
         }
 
         .social-icons i {
             cursor: pointer;
             transition: 0.3s;
+            font-size: 18px;
         }
 
         .social-icons i:hover {
-            color: var(--text-light);
+            color: var(--primary-color);
         }
 
         /* القسم الرئيسي (Hero) */
         .hero {
             position: relative;
             padding: 80px 40px;
-            /* صورة God Of War في الخلفية للقسم العلوي */
-            background: linear-gradient(to left, transparent, rgba(15, 20, 30, 0.95)), url('https://image.api.playstation.com/vulcan/img/rnd/202010/2217/L3amRsCQWvwz2NBC9gPanDQp.png') no-repeat center right / cover;
-            min-height: 400px;
+            text-align: center;
+            /* تمت إزالة خلفية God of War لعدم تغطية الخلفية الأصلية للموقع */
+            min-height: 350px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: 50px;
+            font-size: 55px;
             font-weight: 900;
             line-height: 1.2;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
         }
 
         .hero h1 span {
             color: var(--primary-color);
-            display: block;
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 20px;
             color: var(--text-gray);
             margin-bottom: 30px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
         }
 
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 12px 30px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-            width: fit-content;
-        }
-
-        .btn-primary:hover {
-            background-color: #c00010;
-            transform: scale(1.05);
-        }
-
-        /* قسم الألعاب */
-        .games-section {
+        /* تنسيق الأقسام المخصصة (مكتبات، تطبيقات، ثيمات) */
+        .content-section {
             padding: 40px;
+            background: rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .section-title {
-            font-size: 20px;
-            margin-bottom: 25px;
+            font-size: 24px;
+            margin-bottom: 30px;
             border-right: 4px solid var(--primary-color);
-            padding-right: 10px;
+            padding-right: 15px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        .games-grid {
+        .items-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
 
-        .game-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+        .item-card {
+            background: rgba(20, 25, 40, 0.6);
+            border-radius: 12px;
             overflow: hidden;
             transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
         }
 
-        .game-card:hover {
+        .item-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            border-color: var(--primary-color);
         }
 
-        .game-card img {
+        .item-card img {
             width: 100%;
-            height: 280px;
+            height: 180px;
             object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .game-title {
-            padding: 15px;
+        .item-info {
+            padding: 20px;
             text-align: center;
-            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .item-title {
+            font-size: 18px;
             font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        /* الإحصائيات */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            padding: 30px 40px;
-            background: rgba(0, 0, 0, 0.4);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .stat-icon {
-            font-size: 24px;
-            color: #00d2ff;
-        }
-
-        .stat-info h3 {
-            font-size: 20px;
-            color: #fff;
-        }
-
-        .stat-info p {
+        .item-desc {
             font-size: 13px;
             color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
-        
+
+        /* زر التحميل */
+        .btn-download {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .btn-download:hover {
+            background-color: #c00010;
+            transform: scale(1.02);
+        }
+
+        .btn-download i {
+            margin-left: 8px;
+        }
+
         /* حقوق التصميم */
         .footer-credit {
             text-align: center;
-            padding: 15px;
-            font-size: 13px;
+            padding: 20px;
+            font-size: 14px;
             color: var(--text-gray);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
@@ -235,81 +236,99 @@
     <div class="main-container">
         
         <header>
-            <div class="logo">PS3</div>
+            <div class="logo">PS3 LIBR</div>
             <nav>
                 <ul>
                     <li><a href="#" class="active">الرئيسية</a></li>
-                    <li><a href="#">الألعاب</a></li>
-                    <li><a href="#">الأخبار</a></li>
-                    <li><a href="#">الشروحات</a></li>
-                    <li><a href="#">المنتدى</a></li>
-                    <li><a href="#">تواصل معنا</a></li>
+                    <li><a href="#libraries">المكتبات</a></li>
+                    <li><a href="#apps-fixes">تطبيقات وفيكسات</a></li>
+                    <li><a href="#themes">ثيمات أنمي</a></li>
                 </ul>
             </nav>
             <div class="social-icons">
                 <i class="fas fa-search"></i>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
+                <i class="fab fa-discord"></i>
                 <i class="fab fa-youtube"></i>
             </div>
         </header>
 
         <div class="hero">
-            <h1>عالم بلا حدود <br> <span>تجربة بلا مثيل</span></h1>
-            <p>كل ما يخص PlayStation 3 في مكان واحد</p>
-            <button class="btn-primary">استكشف الآن</button>
+            <h1>عالم بلا حدود <br> <span>PS3 Brothers</span></h1>
+            <p>مكتبتك الشاملة لتحميل ألعاب، تطبيقات، وتعديلات جهاز بلايستيشن 3</p>
         </div>
 
-        <div class="games-section">
-            <h2 class="section-title">أحدث الألعاب</h2>
-            <div class="games-grid">
-                <div class="game-card">
-                    <img src="https://m.media-amazon.com/images/I/81+m10G+H3L._AC_SY606_.jpg" alt="The Last of Us">
-                    <div class="game-title">The Last of Us</div>
+        <div class="content-section" id="libraries">
+            <h2 class="section-title"><i class="fas fa-gamepad"></i> مكتبات ألعاب PS3</h2>
+            <div class="items-grid">
+                
+                <div class="item-card">
+                    <img src="https://example.com/library-img.jpg" alt="Free Shop">
+                    <div class="item-info">
+                        <div class="item-title">مكتبة PKGi Free Shop</div>
+                        <div class="item-desc">تحميل الألعاب مباشرة من جهاز PS3 بدون كمبيوتر مع آخر التحديثات.</div>
+                        <a href="#" class="btn-download"><i class="fas fa-download"></i> تحميل المكتبة</a>
+                    </div>
                 </div>
-                <div class="game-card">
-                    <img src="https://m.media-amazon.com/images/I/81M+R2L8xTL._AC_SY606_.jpg" alt="Uncharted 2">
-                    <div class="game-title">Uncharted 2</div>
+
+                <div class="item-card">
+                    <img src="https://example.com/store-img.jpg" alt="Zuko Store">
+                    <div class="item-info">
+                        <div class="item-title">مكتبة Zuko Store</div>
+                        <div class="item-desc">مكتبة شاملة تحتوي على ألعاب PS1, PS2, و PS3 متوافقة مع HEN.</div>
+                        <a href="#" class="btn-download"><i class="fas fa-download"></i> تحميل المكتبة</a>
+                    </div>
                 </div>
-                <div class="game-card">
-                    <img src="https://m.media-amazon.com/images/I/81c-m-mP+JL._AC_SY606_.jpg" alt="God of War III">
-                    <div class="game-title">God of War III</div>
-                </div>
-                <div class="game-card">
-                    <img src="https://m.media-amazon.com/images/I/81s3rZ0jA1L._AC_SY606_.jpg" alt="Resident Evil 5">
-                    <div class="game-title">Resident Evil 5</div>
-                </div>
+
             </div>
         </div>
 
-        <div class="stats">
-            <div class="stat-item">
-                <i class="fas fa-user stat-icon"></i>
-                <div class="stat-info">
-                    <h3>+15,000</h3>
-                    <p>عضو نشط</p>
+        <div class="content-section" id="apps-fixes">
+            <h2 class="section-title"><i class="fas fa-tools"></i> تطبيقات، فيكسات ومودات</h2>
+            <div class="items-grid">
+                
+                <div class="item-card">
+                    <img src="https://example.com/multiman.jpg" alt="MultiMan">
+                    <div class="item-info">
+                        <div class="item-title">تطبيق MultiMan v4.85</div>
+                        <div class="item-desc">المدير الأساسي لملفات جهاز PS3 لتشغيل الألعاب وإدارة الملفات.</div>
+                        <a href="#" class="btn-download"><i class="fas fa-download"></i> تحميل التطبيق</a>
+                    </div>
                 </div>
+
+                <div class="item-card">
+                    <img src="https://example.com/gta5-mod.jpg" alt="GTA 5 Mod Menu">
+                    <div class="item-info">
+                        <div class="item-title">GTA V Mod Menu + Fix (BLES/BLUS)</div>
+                        <div class="item-desc">فيكس شامل وملفات المود منيو الخاصة بلعبة قراند 5 للتحديث الأخير 1.27.</div>
+                        <a href="#" class="btn-download"><i class="fas fa-download"></i> تحميل الفيكس</a>
+                    </div>
+                </div>
+
             </div>
-            <div class="stat-item">
-                <i class="fas fa-gamepad stat-icon"></i>
-                <div class="stat-info">
-                    <h3>+500</h3>
-                    <p>لعبة</p>
+        </div>
+
+        <div class="content-section" id="themes">
+            <h2 class="section-title"><i class="fas fa-paint-brush"></i> ثيمات أنمي متحركة (Dynamic Themes)</h2>
+            <div class="items-grid">
+                
+                <div class="item-card">
+                    <img src="https://example.com/toji-theme.gif" alt="Toji Fushiguro Theme">
+                    <div class="item-info">
+                        <div class="item-title">ثيم Toji Fushiguro متحرك</div>
+                        <div class="item-desc">ثيم ديناميكي متحرك عالي الدقة لشخصية توجي، مخصص لـ PS3 مع أصوات مخصصة.</div>
+                        <a href="#" class="btn-download"><i class="fas fa-download"></i> تحميل الثيم</a>
+                    </div>
                 </div>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-download stat-icon"></i>
-                <div class="stat-info">
-                    <h3>+25,000</h3>
-                    <p>تحميل</p>
+
+                <div class="item-card">
+                    <img src="https://example.com/anime-theme.gif" alt="Attack on Titan Theme">
+                    <div class="item-info">
+                        <div class="item-title">ثيم هجوم العمالقة (AOT)</div>
+                        <div class="item-desc">ثيم متحرك لشاشة XMB يحتوي على خلفيات متغيرة لليفاي وإرين.</div>
+                        <a href="#" class="btn-download"><i class="fas fa-download"></i> تحميل الثيم</a>
+                    </div>
                 </div>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-book stat-icon"></i>
-                <div class="stat-info">
-                    <h3>+1,000</h3>
-                    <p>دليل وشرح</p>
-                </div>
+
             </div>
         </div>
 
