@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>PS3 Brothers Store</title>
+    <style>
+        /* إعدادات الصورة الخلفية */
+        .background-site {
+            position: relative;
+            width: 1000px; /* عدل العرض حسب مقاس صورتك */
+            height: 562px; /* عدل الطول حسب مقاس صورتك */
+            background-image: url('image1.png'); /* ضع اسم صورتك هنا */
+            background-size: cover;
+            margin: 0 auto; /* لجعل الموقع في منتصف الشاشة */
+        }
+
+        /* الإعدادات الأساسية للأزرار الشفافة */
+        .hidden-btn {
+            position: absolute;
+            display: block;
+            /* استخدم هذا اللون الأحمر الشفاف مؤقتاً لترى مكان الزر، ثم احذفه أو اجعله transparent لاحقاً */
+            background-color: rgba(255, 0, 0, 0.4); 
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* ------------------------------------- */
+        /* تحديد أماكن "البلايص" (الأزرار) */
+        /* ------------------------------------- */
+
+        /* مثال: زر متجر Zuko Store */
+        .btn-zuko {
+            top: 40%;    /* البعد من الأعلى */
+            left: 72%;   /* البعد من اليسار */
+            width: 15%;  /* عرض الزر */
+            height: 12%; /* طول الزر */
+        }
+
+        /* مثال: زر ثيم Gojo */
+        .btn-gojo {
+            top: 38%;
+            left: 8%;
+            width: 14%;
+            height: 18%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-site">
+        
+        <a href="رابط_تحميل_زوكو_هنا" class="hidden-btn btn-zuko" target="_blank" title="تحميل Zuko Store"></a>
+        
+        <a href="رابط_تحميل_غوجو_هنا" class="hidden-btn btn-gojo" target="_blank" title="تحميل ثيم Gojo"></a>
+
+        </div>
+
+</body>
+</html>
